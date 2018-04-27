@@ -5,7 +5,7 @@
     <div class="container">
     <div class="list-group">
       <div class="list-group-item" v-for='customer in customers' :key="customer.id">
-        {{ customer.firstName }} {{ customer.lastName }}
+        {{ customer.firstName }} {{ customer.lastName }}<router-link class="nav-link" :to="'/customers/' + customer.id">Latest Purchases</router-link>
         <button class="btn btn-danger" @click="removeCustomer(customer)">Remove Customer</button>
       </div>
       <hr>
@@ -33,7 +33,6 @@ export default {
       customers: customerService.list(),
     
     newCustomer: {
-      id: '',
       firstName:'',
       lastName: '',
       email:''
